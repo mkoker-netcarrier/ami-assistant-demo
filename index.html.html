@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Atlantic Medical Imaging — Assistant Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root{
+      --brand:#1e3c72; --bg:#f5f7fb; --ink:#1f2937; --muted:#6b7280; --card:#ffffff; --accent:#2563eb; --line:#e5e7eb;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+    .wrap{max-width:1140px;margin:0 auto;padding:28px}
+    header{text-align:center;margin:2px 0 26px}
+    h1{margin:0;color:var(--brand);font-size:28px;letter-spacing:.2px}
+    .sub{color:var(--muted);margin-top:6px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+      box-shadow:0 8px 28px rgba(17,24,39,.06);display:flex;flex-direction:column;min-height:560px}
+    .card-head{padding:18px 18px 0}
+    .title{display:flex;align-items:center;gap:10px}
+    .title h2{margin:0;font-size:20px;color:var(--brand)}
+    .muted{color:var(--muted);font-size:14px;margin:6px 0 14px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 14px}
+    .chip{font-size:13px;border:1px solid var(--line);background:#f9fafb;border-radius:999px;padding:6px 10px}
+    .card-body{padding:0 18px 18px;display:flex;flex-direction:column;gap:14px;flex:1}
+    .panel{border:1px solid var(--line);border-radius:12px;background:#fff;flex:1;
+      display:flex;align-items:center;justify-content:center;min-height:360px;overflow:hidden}
+    iframe{border:0;width:100%;height:100%}
+    .cta-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+      padding:10px 14px;border-radius:10px;font-weight:600}
+    .btn:hover{filter:brightness(1.06)}
+    .ghost{background:#eef2ff;color:#1e3a8a}
+    .note{background:#edf5ff;border-left:4px solid var(--accent);padding:10px 12px;border-radius:8px;color:#1f3b77}
+    .foot{border-top:1px dashed var(--line);padding:12px 18px;color:var(--muted);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Atlantic Medical Imaging — Assistant Demo</h1>
+      <p class="sub">One knowledge base. Two channels. Try Chat and Voice side by side.</p>
+    </header>
+
+    <div class="grid">
+      <!-- CHAT -->
+      <section class="card" aria-label="Chat Assistant">
+        <div class="card-head">
+          <div class="title"><h2>Chat</h2></div>
+          <p class="muted">Ask a question, then try requesting a handoff to a human.</p>
+          <div class="chips">
+            <span class="chip">How do I schedule an appointment?</span>
+            <span class="chip">Can I pay my bill online?</span>
+            <span class="chip">Where are your locations?</span>
+            <span class="chip">I want to talk to someone</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="panel" aria-label="Chat Widget">
+            <!-- Replace src if your chat demo URL changes -->
+            <iframe allow="microphone;"
+              src="https://console.dialogflow.com/api-client/demo/embedded/a5e9d851-a83b-431a-9a76-75f5e4d7d868"
+              title="Chat Demo"></iframe>
+          </div>
+          <div class="cta-row">
+            <a class="btn ghost" href="#chat-notes">Demo notes</a>
+          </div>
+          <div id="chat-notes" class="note">
+            Tip: ask for a human to see the escalation flow.
+          </div>
+        </div>
+        <div class="foot">Channel: Web chat</div>
+      </section>
+
+      <!-- VOICE -->
+      <section class="card" aria-label="Voice Assistant">
+        <div class="card-head">
+          <div class="title"><h2>Voice</h2></div>
+          <p class="muted">Natural greeting. Conversational answers. Agent transfer on request.</p>
+          <div class="chips">
+            <span class="chip">How can I pay my bill online?</span>
+            <span class="chip">Where are your locations?</span>
+            <span class="chip">I want to talk to a person</span>
+            <span class="chip">When will I get my results?</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="panel" aria-label="Voice Call Panel">
+            <!-- If you add a web voice widget later, paste its snippet here -->
+            <div style="text-align:center;padding:18px">
+              <p style="margin:0 0 14px">Call the demo line to try the Voice Assistant.</p>
+              <p style="margin:0 0 18px;font-size:22px;font-weight:700;letter-spacing:.5px;">
+                <a href="tel:+119282956048" style="text-decoration:none;color:inherit">+1 928 295 6048</a>
+              </p>
+              <a class="btn" href="tel:+119282956048">Call Voice Demo</a>
+            </div>
+          </div>
+          <div class="cta-row">
+            <a class="btn ghost" href="#voice-notes">Demo notes</a>
+          </div>
+          <div id="voice-notes" class="note">
+            Listen for spoken URLs like “AtlanticMedicalImaging dot com slash locations,” and even pacing on numbers.
+          </div>
+        </div>
+        <div class="foot">Channel: Phone/Web voice</div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
